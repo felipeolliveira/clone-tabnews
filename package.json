@@ -2,16 +2,21 @@
   "name": "paraju",
   "version": "1.0.0",
   "description": "Um desafio cumprido com amor",
+  "keywords": [],
+  "author": "Felipe Oliveira",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev"
+    "dev": "next dev",
+    "lint:check": "prettier --check .",
+    "lint:fix": "prettier --write ."
   },
-  "keywords": [],
   "dependencies": {
-    "next": "13.4.9",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "^13.4.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "author": "Felipe Oliveira",
-  "license": "MIT"
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
 }
