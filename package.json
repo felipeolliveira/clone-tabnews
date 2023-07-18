@@ -1,7 +1,7 @@
 {
-  "name": "paraju",
+  "name": "clone-tabnews",
   "version": "1.0.0",
-  "description": "Um desafio cumprido com amor",
+  "description": "Um clone para o tab news usado no curso.dev",
   "keywords": [],
   "author": "Felipe Oliveira",
   "license": "MIT",
