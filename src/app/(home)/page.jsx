@@ -1,7 +1,8 @@
 function Home() {
   return (
     <main>
-      <p>clone-tabnews</p>
+      <span>🚧</span>
+      <p>Em construção</p>
     </main>
   );
 }
