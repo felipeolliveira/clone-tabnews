@@ -1,0 +1,23 @@
+services:
+  db-client:
+    container_name: tabnews-db-client
+    image: "adminer"
+    ports:
+      - "54321:8080"
+    networks:
+      - tabnews-client-network
+    environment:
+      - ADMINER_DESIGN=dracula
+  database:
+    container_name: tabnews-db
+    image: "postgres:16.0-alpine3.18"
+    environment:
+      - POSTGRES_PASSWORD=tabnews
+    ports:
+      - "5432:5432"
+    networks:
+      - tabnews-client-network
+
+networks:
+  tabnews-client-network:
+    driver: bridge
