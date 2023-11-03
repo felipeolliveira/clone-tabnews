@@ -11,8 +11,8 @@ services:
   database:
     container_name: tabnews-db
     image: "postgres:16.0-alpine3.18"
-    environment:
-      - POSTGRES_PASSWORD=tabnews
+    env_file:
+      - ../.env.local
     ports:
       - "5432:5432"
     networks:
