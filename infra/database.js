@@ -1,15 +1,12 @@
 import { Client } from 'pg'
-import { env } from '../config'
 
 async function query(queryObject) {
-  console.log(env)
-
   const client = new Client({
-    host: env.POSTGRES_HOST,
-    port: env.POSTGRES_PORT,
-    user: env.POSTGRES_USER,
-    database: env.POSTGRES_DB,
-    password: env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    user: process.env.POSTGRES_USER,
+    database: process.env.POSTGRES_DB,
+    password: process.env.POSTGRES_PASSWORD,
   });
 
   await client.connect();

@@ -1,4 +1,4 @@
-import database from '../../../../../src/database'
+import database from '../../../../../infra/database'
 
 test('Connect do database and send a query 1 + 1', async () => {
   const response = await database.query('SELECT 1 + 1 as sum')
