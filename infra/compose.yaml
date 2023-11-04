@@ -12,7 +12,7 @@ services:
     container_name: tabnews-db
     image: "postgres:16.0-alpine3.18"
     env_file:
-      - ../.env.local
+      - ../.env
     ports:
       - "5432:5432"
     networks:
