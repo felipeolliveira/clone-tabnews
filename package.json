@@ -7,13 +7,14 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "sh ./dev.sh",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "infra:compose:up": "docker compose -f ./infra/compose.yaml up -d --force-recreate",
-    "infra:compose:down": "docker compose -f ./infra/compose.yaml down"
+    "infra:up": "docker compose -f ./infra/compose.yaml up -d --force-recreate",
+    "infra:stop": "docker compose -f ./infra/compose.yaml stop",
+    "infra:down": "docker compose -f ./infra/compose.yaml down"
   },
   "dependencies": {
     "next": "^13.4.9",
