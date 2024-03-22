@@ -1,6 +1,8 @@
 import { query } from "infra/database";
 import { NextResponse } from "next/server";
 
+export const dymamic = 'force-dynamic'
+
 export async function GET() {
   const databaseName = process.env.POSTGRES_DB
 
