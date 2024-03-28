@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export const dymamic = 'force-dynamic'
 
-export async function GET() {
+export default async function status(req, res) {
   const databaseName = process.env.POSTGRES_DB
 
   const maxConnections = await query('SHOW max_connections;')
@@ -17,7 +17,7 @@ export async function GET() {
   const openedConnectionsValue = openedConnections.rows[ 0 ].count
   const versionValue = version.rows[ 0 ].server_version
 
-  return NextResponse.json({
+  return res.status(200).json({
     updated_at: new Date().toISOString(),
     dependencies: {
       database: {
