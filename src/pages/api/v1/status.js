@@ -1,17 +1,16 @@
-import { query } from "infra/database";
-import { NextResponse } from "next/server";
+import { database } from "infra/database";
 
 export const dymamic = 'force-dynamic'
 
 export default async function status(req, res) {
   const databaseName = process.env.POSTGRES_DB
 
-  const maxConnections = await query('SHOW max_connections;')
-  const openedConnections = await query({
+  const maxConnections = await database.query('SHOW max_connections;')
+  const openedConnections = await database.query({
     text: 'SELECT count(*)::int FROM pg_stat_activity WHERE datname = $1;',
     values: [ databaseName ]
   })
-  const version = await query('SHOW server_version;')
+  const version = await database.query('SHOW server_version;')
 
   const maxConnectionsValue = maxConnections.rows[ 0 ].max_connections
   const openedConnectionsValue = openedConnections.rows[ 0 ].count
