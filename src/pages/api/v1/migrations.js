@@ -2,7 +2,6 @@ import path from 'node:path';
 import migrationRunner from 'node-pg-migrate'
 import { database } from 'infra/database'
 
-// Dry-run
 export default async function migrations(req, res) {
   const dbClient = await database.getNewClient()
   const migrationsPath = path.resolve('infra', 'migrations')
@@ -15,6 +14,7 @@ export default async function migrations(req, res) {
     verbose: true,
   }
 
+  // Live-run migrations
   if (req.method === 'POST') {
     const migratedMigrations = await migrationRunner(defaultMigrationOptions)
     await dbClient.end()
@@ -26,6 +26,7 @@ export default async function migrations(req, res) {
     return res.status(200).json(migratedMigrations)
   }
 
+  // Dry-run migrations
   if (req.method === 'GET') {
     const pendingMigrations = await migrationRunner({
       ...defaultMigrationOptions,
