@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    dirs: ['pages', 'app', 'components', 'lib', 'src', 'tests']
-  }
-}
+    dirs: ["pages", "app", "components", "lib", "src", "tests"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
