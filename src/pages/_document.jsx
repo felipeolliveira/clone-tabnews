@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import { Html, Head, Main, NextScript } from "next/document";
 
 export const metadata = {
   title: "clone tabnews",
@@ -14,5 +14,5 @@ export default function Document() {
         <NextScript />
       </body>
     </Html>
-  )
+  );
 }
