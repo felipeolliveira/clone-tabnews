@@ -15,10 +15,14 @@ export default async function migrations(req, res) {
 
   try {
     dbClient = await database.getNewClient();
-    
+
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     
-    const migrationsPath = path.join(__dirname, "..", "..", "..", "..", "infra", "migrations");
+    const migrationsPath = path.resolve(__dirname, "..", "..", "..", "..", "infra", "migrations");
+
+    console.log(__dirname)
+    console.log(migrationsPath)
+
     const defaultMigrationOptions = {
       dbClient,
       direction: "up",
