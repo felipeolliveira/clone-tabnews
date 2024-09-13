@@ -1,5 +1,6 @@
 import path from "node:path";
 import migrationRunner from "node-pg-migrate";
+import { fileURLToPath } from 'url';
 import { database } from "infra/database";
 
 export default async function migrations(req, res) {
@@ -14,7 +15,16 @@ export default async function migrations(req, res) {
 
   try {
     dbClient = await database.getNewClient();
+
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    const migrationsPathWithJoin = path.join(__dirname, "..", "..", "..", "..", "infra", "migrations");
+    
     const migrationsPath = path.resolve("infra", "migrations");
+
+    console.log(__dirname)
+    console.log(migrationsPath)
+    console.log(migrationsPathWithJoin)
+
     const defaultMigrationOptions = {
       dbClient,
       direction: "up",
