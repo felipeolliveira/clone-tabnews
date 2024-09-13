@@ -14,7 +14,7 @@
     "lint:eslint:check": "next lint",
     "test": "pnpm infra:up && npx concurrently --names next,jest --hide next --kill-others -k --success command-jest \"next dev\" \"npx jest --runInBand --verbose\"",
     "posttest": "pnpm infra:stop",
-    "test:watch": "jest --runInBand --watchAll",
+    "test:watch": "jest --runInBand --watchAll --verbose",
     "infra:up": "docker compose -f ./infra/compose.yaml up -d --force-recreate",
     "infra:stop": "docker compose -f ./infra/compose.yaml stop",
     "infra:down": "docker compose -f ./infra/compose.yaml down",
