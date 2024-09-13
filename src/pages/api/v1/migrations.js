@@ -18,7 +18,8 @@ export default async function migrations(req, res) {
 
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
     
-    const migrationsPath = path.resolve(__dirname, "..", "..", "..", "..", "infra", "migrations");
+    // const migrationsPath = path.resolve(__dirname, "..", "..", "..", "..", "infra", "migrations");
+    const migrationsPath = path.resolve("infra", "migrations");
 
     console.log(__dirname)
     console.log(migrationsPath)
