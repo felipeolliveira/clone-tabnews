@@ -7,7 +7,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run infra:up && npm run wait-for-postgres && npm run migration:up && next dev",
+    "dev": "npm run infra:up && npm run infra:wait:database && npm run migration:up && next dev",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "next lint",
@@ -16,9 +16,9 @@
     "infra:up": "docker compose -f ./infra/compose.yaml up -d --force-recreate",
     "infra:stop": "docker compose -f ./infra/compose.yaml stop",
     "infra:down": "docker compose -f ./infra/compose.yaml down",
+    "infra:wait:database": "node ./infra/scripts/wait-for-postgres.js",
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
     "migration:up": "node-pg-migrate --migrations-dir ./infra/migrations --envPath ./.env.development up",
-    "wait-for-postgres": "node ./infra/scripts/wait-for-postgres.js",
     "prepare": "husky",
     "commit": "cz"
   },
